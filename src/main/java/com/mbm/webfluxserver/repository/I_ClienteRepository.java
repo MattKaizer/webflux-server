@@ -8,6 +8,4 @@ import com.mbm.webfluxserver.models.Cliente;
 @Repository
 public interface I_ClienteRepository extends ReactiveMongoRepository<Cliente, String> {
 
-
-
 }
