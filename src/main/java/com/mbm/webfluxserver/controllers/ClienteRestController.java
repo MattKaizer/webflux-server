@@ -19,7 +19,7 @@ import reactor.core.publisher.Mono;
 @CrossOrigin
 @RestController
 @Slf4j
-@RequestMapping("/api/clientes")
+@RequestMapping("/api")
 public class ClienteRestController {
 	
 	@Autowired
@@ -29,7 +29,7 @@ public class ClienteRestController {
 	 * List 
 	 */
 	
-	@GetMapping(path="/", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	@GetMapping(path="/clientes", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
 	public Flux<Cliente> index() {
 		return clienteService.findAll().doOnNext(cli -> log.info(cli.toString()));
 	}

@@ -1,5 +1,7 @@
 package com.mbm.webfluxserver.service;
 
+import java.time.Duration;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,8 @@ public class ClienteService implements I_ClienteService{
 	
 	public Flux<Cliente> findAll() {
 		return repositorio.findAll();
+//				.onBackpressureDrop();
+//				.delayElements(Duration.ofSeconds(1));
 	}
 
 
