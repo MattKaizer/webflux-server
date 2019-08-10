@@ -17,16 +17,15 @@ public class ClienteService implements I_ClienteService{
 	@Autowired
 	private I_ClienteRepository repositorio;
 
-	
-	public Mono<Cliente> save(Cliente c) {
-		return repositorio.save(c);
-	}
 
-	
+	/*
+	 * Listado de elementos, flujo constante, los dos metodos siguientes, pueden comentarse para este caso, ya que es solo un poc,
+	 * de cualquier manera sirve para plantear el funcionamiento
+	 */
 	public Flux<Cliente> findAll() {
-		return repositorio.findAll();
-//				.onBackpressureDrop();
-//				.delayElements(Duration.ofSeconds(1));
+		return repositorio.findAll()
+				.onBackpressureDrop()
+				.delayElements(Duration.ofSeconds(1));
 	}
 
 
